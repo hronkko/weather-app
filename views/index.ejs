@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="/js/gauge.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/" method="post">
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+        <% if(weather !== null){ %>
+          <p><%= weather %></p>
+          <p><%= wind %></p> 
+          
+          <canvas data-type="radial-gauge"
+            data-value="<%= value %>"
+            data-width="300"
+            data-height="300"
+            data-units="°C"
+            data-title="Temperature"
+            data-min-value="-50"
+            data-max-value="50"
+            data-major-ticks="[-50,-40,-30,-20,-10,0,10,20,30,40,50]"
+            data-minor-ticks="2"
+            data-stroke-ticks="true"
+            data-highlights='[ {"from": -50, "to": 0, "color": "rgba(0,0, 255, .3)"},
+                {"from": 0, "to": 50, "color": "rgba(255, 0, 0, .3)"} ]'
+            data-ticks-angle="225"
+            data-start-angle="67.5"
+            data-color-major-ticks="#ddd"
+            data-color-minor-ticks="#ddd"
+            data-color-title="#eee"
+            data-color-units="#ccc"
+            data-color-numbers="#eee"
+            data-color-plate="#222"
+            data-border-shadow-width="0"
+            data-borders="true"
+            data-needle-type="arrow"
+            data-needle-width="2"
+            data-needle-circle-size="7"
+            data-needle-circle-outer="true"
+            data-needle-circle-inner="false"
+            data-animation-duration="1500"
+            data-animation-rule="linear"
+            data-color-border-outer="#333"
+            data-color-border-outer-end="#111"
+            data-color-border-middle="#222"
+            data-color-border-middle-end="#111"
+            data-color-border-inner="#111"
+            data-color-border-inner-end="#333"
+            data-color-needle-shadow-down="#333"
+            data-color-needle-circle-outer="#333"
+            data-color-needle-circle-outer-end="#111"
+            data-color-needle-circle-inner="#111"
+            data-color-needle-circle-inner-end="#222"
+            data-value-box-border-radius="0"
+            data-color-value-box-rect="#222"
+            data-color-value-box-rect-end="#333">
+            </canvas>     
+        <% } %>
+
+        <% if(error !== null){ %>
+          <p><%= error %></p>
+        <% } %>
+
+        
+      </fieldset>
+    </div>
+  </body>
+</html>
